@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useForm, useWatch } from "react-hook-form"
+import { useForm, useWatch, SubmitHandler } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { createClient } from "@/lib/supabase/client"
@@ -85,7 +85,7 @@ export function AssignmentForm({ onPublish }: AssignmentFormProps) {
     return publicUrlData.publicUrl
   }
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     if (!coverFile) {
       alert("Cover image is required")
       return

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/lib/supabase"
-import { useForm } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { LogOut, Save, Loader2, CheckCircle2, UploadCloud, X } from "lucide-react"
@@ -19,7 +19,7 @@ const formSchema = z.object({
   description: z.string().optional(),
   learning_outcomes: z.string().optional(),
   reflection: z.string().optional(),
-  published: z.boolean().default(false),
+  published: z.boolean(),
 })
 
 type FormData = z.infer<typeof formSchema>
@@ -64,7 +64,7 @@ export default function EWasteAdmin() {
     return { url: data.publicUrl, name: file.name }
   }
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     setSaving(true)
     setGlobalError("")
     setSuccess(false)
