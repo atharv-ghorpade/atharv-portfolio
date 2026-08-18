@@ -99,7 +99,7 @@ export function Hero() {
           </div>
 
           {/* 2. Massive Name Typography */}
-          <h1 className="font-heading text-[14vw] md:text-[9vw] lg:text-[7.5rem] font-black tracking-tighter leading-[0.8] uppercase flex flex-col mb-4">
+          <h1 className="font-heading text-[12vw] md:text-[9vw] lg:text-[7.5rem] font-black tracking-tighter leading-[0.8] uppercase flex flex-col mb-4">
             <span className="text-[var(--primary-text)]">
               ATHARVA
             </span>
